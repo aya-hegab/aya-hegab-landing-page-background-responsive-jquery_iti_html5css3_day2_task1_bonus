@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>landing-page-background-responsive-jquery</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="stylesheet" href="css/all.min.css" /> -->
+    <link
+      rel="stylesheet"
+      href="node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+    <!-- <script src="jquery-3.7.1.js"></script> -->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  </head>
+  <body>
+    <header class="first">
+      <span>
+        <i class="fa-solid fa-bars"></i>
+      </span>
+      <a href="#">Home</a>
+      <a href="#">about</a>
+      <h2>ITI Admission System</h2>
+      <a href="#">Contact us</a>
+      <a href="#">product</a>
+    </header>
+    <header class="sec">
+      <a href="#">Home</a>
+      <a href="#">about</a>
+      <a href="#">Contact us</a>
+      <a href="#">product</a>
+    </header>
+    <section>
+      <div class="regist">
+        <h3>Click For Registration</h3>
+        <button>Register</button>
+      </div>
+    </section>
+    <script>
+      $(window).resize(function () {
+        var width = $(window).width();
+        if (width > 576) {
+          $(this).removeClass("active");
+          $("header.sec").css("height", "0vh");
+          $("section").css("height", "90vh");
+          $("header.sec a").css("display", "none");
+        }
+      });
+
+      $("i").on("click", function () {
+        if ($(this).hasClass("active")) {
+          $(this).removeClass("active");
+          $("header.sec a").css("display", "none");
+          $("header.sec").css("height", "0vh");
+          $("section").css("height", "90vh");
+        } else {
+          $(this).addClass("active");
+          $("header.sec").css("display", "flex");
+          $("header.sec").css("height", "20vh");
+          $("section").css("height", "70vh");
+          $("header.sec a").css("display", "inline");
+        }
+      });
+    </script>
+  </body>
+</html>
